@@ -1,0 +1,38 @@
+body {
+    background-color: #eee;
+    padding: 10px 20px;
+}
+
+nav {
+
+}
+
+section {
+    background-color: #fff;
+    width: fit-content;
+    padding: 20px;
+    padding-top: 1px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.form-entry {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#new-book-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#submit-btn {
+    background: blue;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border: outset #33f 5px;
+    cursor: pointer;
+}
