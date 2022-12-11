@@ -1,15 +1,16 @@
 <?php 
   include_once 'connectPSQL.php';
-
-  // print_r($CONN);
-
-  $result = pg_query($CONN, "SELECT * FROM books;");
+  
+  $isbn = $_POST['isbn'];
+  $title = $_POST['title'];
+  $author = $_POST['author'];
+  $year = $_POST['published'];
+  
+  $result = pg_query($CONN, "INSERT INTO books (isbn, title, author, year) VALUES ('$isbn', '$title', '$author', '$year');");
 
   if ($result) {
-    // $data = pg_fetch_assoc($result);
-    echo json_encode(pg_fetch_all($result));
+    echo 'success';
   } else {
-    echo pg_last_error($CONN);
+    echo 'fail';
   }
-  
 ?>

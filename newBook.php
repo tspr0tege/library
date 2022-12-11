@@ -32,6 +32,6 @@
             </form>
         </section>
 
-        <script src="submitNewBook.js"></script>
+        <script src="./scripts/submitNewBook.js"></script>
     </body>
 </html>
