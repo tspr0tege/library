@@ -7,9 +7,9 @@
         <?php include 'nav.php';?>
         <section id="search-box">
             <h3>Search</h3>
-            <form action="#">
-                <input type="text" placeholder="Search for a book">
-                <button type="submit" id="search-btn">Search</button>
+            <form id="search-form">
+                <input type="text" name="search" id="search-text-box" placeholder="Search for a book">
+                <input type="submit" id="search-btn" value="Search">
             </form>
         </section>
         <section id="book-list">

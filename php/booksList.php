@@ -3,32 +3,66 @@
     include_once 'connectPSQL.php';
     $response = '<h3>Book List</h3>';
 
-    // GET all rows
-    $result = pg_query($CONN, "SELECT * FROM books;");
+    $params = htmlspecialchars($_GET['search']);
 
-    if ($result) {
-      // echo 'Hello there!';
-      while($row = pg_fetch_assoc($result)) {
-        $response .= '
-          <div class="book-tile">
-            <img src="images/default.jpg" class="thumbnail">
-            <div class="book-info">
-                <p>Title: ' . $row['title'] . '</p>
-                <p>Author: ' . $row['author'] . '</p>
-                <p>Year Published: ' . $row['year'] . '</p>
-                <p>ISBN: ' . $row['isbn'] . '</p>
-            </div>
-            <div class="book-controls">
-                <p>Available: No</p>
-                <button>Return</button>
-                <p>Due back: 12-12-2022</p>
-            </div>
+    function addTile($row) {
+      $newTile = '
+        <div class="book-tile">
+          <img src="images/default.jpg" class="thumbnail">
+          <div class="book-info">
+              <p>Title: ' . $row['title'] . '</p>
+              <p>Author: ' . $row['author'] . '</p>
+              <p>Year Published: ' . $row['year'] . '</p>
+              <p>ISBN: ' . $row['isbn'] . '</p>
+          </div>';
+      if ($row['available'] == 't') {
+        $newTile .= '
+          <div class="book-controls">
+            <p>Available: <span class="green">Yes</span></p>
+            <button data-id="' . $row['id'] . '">Checkout</button>
+            <p>Due back:</p>
           </div>
-        ';
+        </div>';
+      } else {
+        $newTile .= '
+          <div class="book-controls">
+            <p>Available: <span class="red">No</span></p>
+            <button data-id="' . $row['id'] . '">Return</button>
+            <p>Due back: 12-12-2022</p>
+          </div>
+        </div>';
       }
-    } else {
-      echo 'something went wrong';
+      return $newTile;
     }
 
+    if ($params) {
+      $result = pg_query($CONN, 
+        "SELECT * FROM books 
+        WHERE title LIKE '$params%'
+        OR author LIKE '$params%'
+        OR isbn LIKE '$params%';");
+
+      if ($result) {
+        // echo 'Search successful';
+        while($row = pg_fetch_assoc($result)) {          
+          $response .= addTile($row);
+        }
+      } else {
+        echo 'Error in search for ' . $params;
+      }
+
+    } else {
+      // GET all rows
+      $result = pg_query($CONN, "SELECT * FROM books;");
+  
+      if ($result) {
+        // echo 'Hello there!';
+        while($row = pg_fetch_assoc($result)) {
+          $response .= addTile($row);
+        }
+      } else {
+        echo 'something went wrong';
+      }
+    }
     echo $response;
 ?>
