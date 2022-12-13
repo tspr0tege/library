@@ -20,7 +20,6 @@
           <div class="book-controls">
             <p>Available: <span class="green">Yes</span></p>
             <button data-id="' . $row['id'] . '">Checkout</button>
-            <p>Due back:</p>
           </div>
         </div>';
       } else {
@@ -28,7 +27,8 @@
           <div class="book-controls">
             <p>Available: <span class="red">No</span></p>
             <button data-id="' . $row['id'] . '">Return</button>
-            <p>Due back: 12-12-2022</p>
+            <p>Due back:</p>
+            <p>' . date('m-d-y', strtotime('+2 weeks', strtotime($row['checkedout']))) . '</p>
           </div>
         </div>';
       }

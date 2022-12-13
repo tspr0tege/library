@@ -7,7 +7,7 @@
         <?php include 'nav.php';?>
         <section>
             <h3>Add a new book to the catalog</h3>
-            <form id="new-book-form" action="#">
+            <form id="new-book-form" action="#" enctype="multipart/form-data">
                 <div class="form-entry">
                     <label for="isbn">ISBN</label>
                     <input name="isbn" id="isbn" type="text">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-entry">
                     <label for="cover-pic">Upload cover:</label>
-                    <input name="cover-pic" id="cover-pic" type="file">
+                    <input name="image" id="cover-pic" type="file">
                 </div>
                 <input id="submit-btn" type="submit" value="Submit">
             </form>

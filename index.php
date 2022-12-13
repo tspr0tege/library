@@ -17,6 +17,7 @@
             
         </section>
 
+        <script src="./scripts/bookCheckout.js"></script>
         <script src="./scripts/retrieveBooksList.js"></script>
     </body>
 </html>
