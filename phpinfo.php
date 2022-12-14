@@ -1,1 +1,4 @@
-<?php echo phpinfo(); ?>
+<?php 
+  echo `whoami`;
+  echo phpinfo(); 
+?>

@@ -10,15 +10,15 @@
             <form id="new-book-form" action="#" enctype="multipart/form-data">
                 <div class="form-entry">
                     <label for="isbn">ISBN</label>
-                    <input name="isbn" id="isbn" type="text">
+                    <input name="isbn" id="isbn" type="text" required>
                 </div>
                 <div class="form-entry">
                     <label for="title">Title: </label>
-                    <input name="title" id="title" type="text">
+                    <input name="title" id="title" type="text" required>
                 </div>
                 <div class="form-entry">
                     <label for="author">Author:</label>
-                    <input name="author" id="author" type="text">
+                    <input name="author" id="author" type="text" required>
                 </div>
                 <div class="form-entry">
                     <label for="published">Year Published:</label>

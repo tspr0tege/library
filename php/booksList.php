@@ -8,7 +8,7 @@
     function addTile($row) {
       $newTile = '
         <div class="book-tile">
-          <img src="images/default.jpg" class="thumbnail">
+          <img src="images/' . $row['image'] .'" class="thumbnail">
           <div class="book-info">
               <p>Title: ' . $row['title'] . '</p>
               <p>Author: ' . $row['author'] . '</p>
