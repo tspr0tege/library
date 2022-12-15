@@ -51,7 +51,11 @@
           <label for="image">Book cover:</label>
           <input id="image" name="image" type="file">
         </div>
-        <input type="submit">
+        <div class="form-controls">
+          <input type="submit" value="Save & Exit">
+          <button id="cancel-edit-btn" >Cancel Editing</button>
+          <button id="delete-entry-btn" >Delete From Catalog</button>
+        </div>
 
       </form>
     </section>

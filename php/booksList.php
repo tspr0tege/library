@@ -14,7 +14,7 @@
             <p>Author: ' . $row['author'] . '</p>
             <p>Year Published: ' . $row['year'] . '</p>
             <p>ISBN: ' . $row['isbn'] . '</p>
-            <a href="editBook.php?id=' . $row['id'] . '">Edit Book Details</a>
+            <a href="editBook.php?id=' . $row['id'] . '">Edit/Delete Book</a>
         </div>';
     if ($row['available'] == 't') {
       $newTile .= '

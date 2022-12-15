@@ -36,11 +36,18 @@ if ($checkout) { // When book is being checked out
     $queryStr = rtrim($queryStr, ", ");
   }
 
-  if (strlen($queryStr) <= 17) {
+  if (strlen($queryStr) <= 17) { // nothing added to query string
     echo 'No details have been changed.';
   } else {
     $queryStr .= " WHERE id = '" . $_POST['id'] . "';";
-    echo $queryStr;
+    // echo $queryStr;
+    $result = pg_query($CONN, $queryStr);
+
+    if ($result) {
+      echo 'successfully updated book';
+    } else {
+      echo 'error in SQL query';
+    }
   }
 }
 
