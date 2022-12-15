@@ -13,7 +13,6 @@
   */
   
   if(isset($_FILES['image'])) {
-    // echo 'File detected';
 
     if(!!$_FILES['image']['error']) {
       echo $_FILES['image']['error'];

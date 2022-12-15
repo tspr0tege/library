@@ -28,6 +28,11 @@ section {
   margin-bottom: 10px;
 }
 
+.form-entry img {
+  height: 60px;
+  width: 60px;
+}
+
 .book-tile {
   /* line-height: .5rem; */
   display: flex;
