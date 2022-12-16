@@ -37,6 +37,6 @@
   if ($result) {
     echo 'success';
   } else {
-    echo 'fail';
+    echo pg_last_error($CONN);
   }
 ?>
