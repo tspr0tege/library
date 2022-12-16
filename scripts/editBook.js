@@ -8,13 +8,36 @@ fileUpload.onchange = (e) => {
 
 // handle form submission
 const form = document.getElementById('edit-book-form');
+const errorBox = document.getElementById('error-box');
+const errorList = document.querySelector('#error-box ul');
 
 form.onsubmit = (e) => {
   e.preventDefault();
+  const errors = [];
   const formData = new FormData(form);
   formData.append('id', form.dataset.id);
-  // for (let entry of formData.entries()) {console.log(entry);}
-  fetch('php/editBook.php', {method: 'POST', body: formData})
+
+  const validISBN = validateISBN(formData.get('isbn'));
+  if (validISBN !== true) {
+    errors.push(validISBN);
+  }
+
+  const validImage = validateImage(formData.get('image').name);
+  if (validImage !== true) {
+    errors.push(validImage);
+  }
+
+  if (errors.length > 0) {
+    // populate errors
+    errorList.innerHTML = '';
+    errorBox.style.display = 'block';
+    errors.forEach((error) => {
+      const li = document.createElement('li');
+      li.textContent = error;
+      errorList.appendChild(li);
+    });
+  } else {
+    fetch('php/editBook.php', {method: 'POST', body: formData})
     .then(async (data) => {
       const response = await data.text();
       console.log(response);
@@ -22,6 +45,7 @@ form.onsubmit = (e) => {
       location.assign('index.php');
     })
     .catch(console.error);
+  }
 }
 
 // Exit form

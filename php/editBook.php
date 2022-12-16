@@ -31,7 +31,14 @@ if ($checkout) { // When book is being checked out
   }
   
   if (!!$_FILES['image']['name']) { // Image detected
-    $queryStr .= "image = '" . time() . $_FILES['image']['name'] . "'";    
+    $newImgName = time() . $_FILES['image']['name'];
+    
+    if(!move_uploaded_file($_FILES['image']['tmp_name'], '../images/' . $newImgName)) {
+      echo $_FILES['image']['tmp_name'], '../images/' . $newImgName;
+      echo 'Error saving picture';
+      exit();
+    }
+    $queryStr .= "image = '" . $newImgName . "'";    
   } else { // No Image chosen
     $queryStr = rtrim($queryStr, ", ");
   }

@@ -10,10 +10,10 @@
       <div class="book-tile">
         <img src="images/' . $row['image'] .'" class="thumbnail">
         <div class="book-info">
-            <p>Title: ' . $row['title'] . '</p>
-            <p>Author: ' . $row['author'] . '</p>
-            <p>Year Published: ' . $row['year'] . '</p>
-            <p>ISBN: ' . $row['isbn'] . '</p>
+            <p>Title: <span>' . $row['title'] . '</span></p>
+            <p>Author: <span>' . $row['author'] . '</span></p>
+            <p>Year Published: <span>' . $row['year'] . '</span></p>
+            <p>ISBN: <span>' . $row['isbn'] . '</span></p>
             <a href="editBook.php?id=' . $row['id'] . '">Edit/Delete Book</a>
         </div>';
     if ($row['available'] == 't') {

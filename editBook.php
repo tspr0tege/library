@@ -18,6 +18,11 @@
 
     <section>
       <h3>Edit Book</h3>
+      <div id="error-box">
+        <ul>
+
+        </ul>
+       </div>
       <form id="edit-book-form" enctype="multipart/form-data" data-id="<?php echo $bookID ?>">
         <div class="form-entry">
           <label for="isbn">ISBN:</label>
@@ -42,7 +47,7 @@
             max="<?php echo date('Y') ?>"
           required>
         </div>
-        <div class="form-entry" style="flex-direction: row;">
+        <div class="form-entry" style="flex-direction: row; align-items: flex-end;">
           <img 
             id="cover-image"
             src="images/<?php echo $row['image'] ?>" 
@@ -59,6 +64,7 @@
 
       </form>
     </section>
+    <script src="scripts/validations.js"></script>
     <script src="scripts/editBook.js"></script>
   </body>
 </html>

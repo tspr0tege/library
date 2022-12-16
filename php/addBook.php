@@ -12,10 +12,10 @@
   $_FILE = [FORM_NAME(attr)]['name', 'type', 'error', 'tmp_name']
   */
   
-  if(isset($_FILES['image'])) {
+  if(!!$_FILES['image']['name']) {
 
     if(!!$_FILES['image']['error']) {
-      echo $_FILES['image']['error'];
+      echo 'Image name found, but error contained' . $_FILES['image']['error'];
       exit();
     }
 
