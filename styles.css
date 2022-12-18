@@ -139,6 +139,10 @@ input[type="file"] {
   font-weight: 100;
   position: absolute;
   left: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: calc(100% - 100px);
 }
 
 .book-info a {

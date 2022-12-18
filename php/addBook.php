@@ -1,17 +1,14 @@
 <?php 
+  session_start();
   include_once 'connectPSQL.php';
-  
+
   $isbn = $_POST['isbn'];
   $title = $_POST['title'];
   $author = $_POST['author'];
   $year = $_POST['published'];
   $tableCols = array('isbn', 'title', 'author', 'year');
   $colValues = array($isbn, $title, $author, $year);
-
-  /* 
-  $_FILE = [FORM_NAME(attr)]['name', 'type', 'error', 'tmp_name']
-  */
-  
+ 
   if(!!$_FILES['image']['name']) {
 
     if(!!$_FILES['image']['error']) {
@@ -37,6 +34,6 @@
   if ($result) {
     echo 'success';
   } else {
-    echo 'fail';
+    echo pg_last_error($CONN);
   }
 ?>
