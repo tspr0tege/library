@@ -30,7 +30,12 @@ form.onsubmit = (e) => {
     fetch('php/addBook.php', {method: 'POST', body: formData})
     .then(async (data) => {
       let response = await data.text();
-      console.log(response);
+      if (response == 'success') {
+        alert(`${formData.get('title')} was added to the catalog/database.`);
+        form.reset();
+      } else {
+        alert('Unable to add new book to the catalog.');
+      }
     })
     .catch(console.error);
   }

@@ -14,31 +14,36 @@ body {
 }
 
 nav {
-  height: 40px;
-  background-color: #36f;
+  padding: 10px;
+  background-color: #fff;
   width: 60%;
   margin: auto;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  height: 100%;
+  height: fit-content;
   padding: 0;
 }
 
 nav li {
   height: 100%;
-  padding: 0.5em 20px;
-  border: black 1px solid;
+  padding: 0.5em 1em;
   box-sizing: border-box;
 }
 
 nav a {
-  color: white;
+  color: #13b;
   font-weight: 600;
   text-decoration: none;
   font-size: 1.1rem;
+}
+
+nav a:not(:last-child) {
+  border-right: #ddd 2px solid;
 }
 
 section {
@@ -107,12 +112,14 @@ input[type="file"] {
 }
 
 .book-tile {
-  /* line-height: .5rem; */
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  border-bottom: solid #ccc 1px;
   padding: 10px;
+}
+
+.book-tile:not(:last-child) {
+  border-bottom: solid #ccc 1px;
 }
 
 .book-info {
