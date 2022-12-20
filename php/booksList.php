@@ -41,10 +41,12 @@
   if ($params) {
     $queryStr .= " WHERE title LIKE '$params%'
     OR author LIKE '$params%'
-    OR isbn LIKE '$params%';";
+    OR isbn LIKE '$params%' ORDER BY title;";
   } else {
-    $queryStr .= ";";
+    $queryStr .= " ORDER BY title;";
   }
+
+
   
   $result = pg_query($CONN, $queryStr);
 
